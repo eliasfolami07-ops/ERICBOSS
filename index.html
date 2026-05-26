@@ -12,8 +12,9 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
-    }body {
-  background: #f8f8f8;
+    }
+    body {
+  background: #ece4d8;
   color: #222;
   line-height: 1.6;
 }
@@ -31,21 +32,40 @@ header {
   padding: 20px;
 }
 
-
 .hero {
   max-width: 800px;
   position: relative;
 }
+.hero-logo{
+  width: 480px;
+  max-width: 90%;
+  margin-bottom: 20px;
+
+  /* Premium effect */
+  filter: drop-shadow(0 4px 12px rgba(212,175,55,0.35));
+
+  transition: 0.3s ease;
+}
+
+.hero-logo:hover{
+  transform: scale(1.03);
+}
+
+.hero h2{
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: white;
+}
 
 .hero h1 {
   font-size: 4rem;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   color: white;
   font-weight: 700;
-  -webkik-text-stroke: 1.5px black;
-
+  letter-spacing: 1px;
 }
-
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 30px;
@@ -159,11 +179,19 @@ footer {
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.8rem;
+
   }
 
   .hero p {
     font-size: 1rem;
   }
+.hero-logo{
+  width: 130px;
+}
+
+.hero h2{
+  font-size: 2.3rem;
+}
 }
 
   </style>
@@ -171,7 +199,10 @@ footer {
 <body>  <header>
     <section class="hero">
   <div class="overlay">
-      <h1><bold>ERICBOSS Kitchen Services</bold></h1>
+      <img src="Eric-logo.png" alt="ERICBOSS Logo" class="hero-logo">
+
+<h1>ERICBOSS</h1>
+<h2>Kitchen Services</h2>
       <h4 style="font-size: 18px;">Professional kitchen design, installation, remodeling, and maintenance services for modern homes and businesses.</h4><br>
       <a href="#contact" class="btn">Book a Consultation</a>
     </div>

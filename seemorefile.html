@@ -24,15 +24,11 @@
     font-size: 3rem;
 }
    .logo{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-       
+    width: 90%;
+    max-width: 500px;
+    display: block;
+    margin: auto;
    }
-
 .gallery-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -76,6 +72,16 @@
     margin-bottom: 10px;
     transition: 0.3s;
 }
+      @media(max-width:768px){
+
+    .gallery-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .logo{
+        max-width: 300px;
+    }
+      }
 
 .footer a:hover{
     color: orange;

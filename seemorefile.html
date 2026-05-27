@@ -2,166 +2,583 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | ERICBOSS</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
 
-  <style>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    .gallery-page{
-    padding: 80px 10%;
-    background: #140904;
-    min-height: 100vh;
+<title>Gallery | ERICBOSS</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
-.gallery-page h1{
-    color: white;
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 3rem;
+body{
+    background:#0f0502;
+    color:white;
+    overflow-x:hidden;
 }
-   
+
+/* ===== HERO ===== */
+
+.gallery-hero{
+
+    min-height:60vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.72),
+    rgba(0,0,0,0.72)),
+    url('Eric1.png');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    position:relative;
+}
+
+.gallery-hero::before{
+    content:'';
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    background:
+    rgba(255,140,0,0.08);
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    animation:float 8s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+.hero-content{
+    z-index:2;
+    animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero-logo{
+    width:300px;
+    max-width:90%;
+
+    margin-bottom:20px;
+
+    filter:
+    drop-shadow(0 0 10px rgba(255,170,0,0.4))
+    drop-shadow(0 0 25px rgba(255,170,0,0.3));
+
+    transition:0.4s;
+}
+
+.hero-logo:hover{
+    transform:scale(1.03);
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    color:#ddd;
+    font-size:1.1rem;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery-page{
+    padding:100px 8%;
+}
+
+.gallery-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.gallery-title h2{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.gallery-title p{
+    color:#bbb;
+}
+
 .gallery-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 20px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
 }
 
-.gallery-container img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: 0.4s;
+.gallery-item{
+    overflow:hidden;
+    border-radius:20px;
+
+    position:relative;
+
+    background:#1a0b03;
+
+    transition:0.4s;
 }
 
-.gallery-container img:hover{
-    transform: scale(1.03);
+.gallery-item:hover{
+    transform:translateY(-8px);
 }
-      
 
-    .footer{
-    background: #140904;
-    color: white;
-    padding: 60px 10%;
+.gallery-item img,
+.gallery-item video{
+
+    width:100%;
+    height:320px;
+
+    object-fit:cover;
+
+    transition:0.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.gallery-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    transparent,
+    rgba(0,0,0,0.75));
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:20px;
+
+    opacity:0;
+
+    transition:0.4s;
+}
+
+.gallery-item:hover .gallery-overlay{
+    opacity:1;
+}
+
+.gallery-overlay h3{
+    font-size:1.2rem;
+}
+
+/* ===== BUTTON ===== */
+
+.btn{
+    display:inline-block;
+
+    margin-top:40px;
+
+    background:
+    linear-gradient(135deg,#ff8c00,#ff5e00);
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 38px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 10px 25px rgba(255,120,0,0.3);
+}
+
+.btn:hover{
+    transform:
+    translateY(-5px)
+    scale(1.03);
+
+    box-shadow:
+    0 18px 40px rgba(255,120,0,0.45);
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+    background:#070201;
+    padding:70px 10% 30px;
 }
 
 .footer-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 40px;
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:40px;
 }
 
 .footer h2,
 .footer h3{
-    margin-bottom: 15px;
+    margin-bottom:18px;
+}
+
+.footer p{
+    color:#aaa;
+    line-height:1.8;
 }
 
 .footer a{
-    display: block;
-    color: #ddd;
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: 0.3s;
+    display:block;
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:0.3s;
 }
-    
 
 .footer a:hover{
-    color: orange;
+    color:#ff8c00;
+    transform:translateX(5px);
 }
 
 .footer-bottom{
-    margin-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    text-align: center;
-    color: #aaa;
-}
-  </style>
 
+    margin-top:50px;
+
+    border-top:
+    1px solid rgba(255,255,255,0.08);
+
+    padding-top:25px;
+
+    text-align:center;
+
+    color:#777;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    .gallery-hero{
+        background-attachment:scroll;
+    }
+
+    .hero-logo{
+        width:220px;
+    }
+
+    .hero-content h1{
+        font-size:2.5rem;
+    }
+
+    .gallery-title h2{
+        font-size:2.2rem;
+    }
+}
+
+</style>
+
+</head>
 
 <body>
 
-    <section class="gallery-page">
-         
-<h1>ERICBOSS</h1>
+<!-- HERO -->
+
+<section class="gallery-hero">
+
+<div class="hero-content">
+
+<img src="Eric-logo.png"
+alt="ERICBOSS Logo"
+class="hero-logo">
+
 <h1>Kitchen Gallery</h1>
 
-        <div class="gallery-container">
- <img src="download (9).png">
+<p>
+Luxury kitchen inspirations and
+premium interior designs by ERICBOSS
+</p>
 
+<a href="index.html"
+class="btn">
+Back Home
+</a>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery-page">
+
+<div class="gallery-title">
+
+<h2>Recent Designs</h2>
+
+<p>
+Modern kitchen spaces crafted with style,
+functionality and elegance.
+</p>
+
+</div>
+
+<div class="gallery-container">
+
+<div class="gallery-item">
+<img src="download (9).png">
+<div class="gallery-overlay">
+<h3>Modern Kitchen Design</h3>
+</div>
+</div>
+
+<div class="gallery-item">
 <img src="images (47).png">
+<div class="gallery-overlay">
+<h3>Luxury Interior Finish</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="IMG-20260524-WA0005.png">
+<div class="gallery-overlay">
+<h3>Premium Cabinet Setup</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="IMG-20260524-WA0009.png">
+<div class="gallery-overlay">
+<h3>Elegant Kitchen Layout</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="download (8).png">
+<div class="gallery-overlay">
+<h3>Kitchen Remodeling</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="IMG-20260524-WA0010.png">
+<div class="gallery-overlay">
+<h3>Modern Kitchen Space</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="U.png">
+<div class="gallery-overlay">
+<h3>Custom Kitchen Design</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="download (3).png">
+<div class="gallery-overlay">
+<h3>Interior Craftsmanship</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="Screenshot_20260522_082726_WPS Office.png">
+<div class="gallery-overlay">
+<h3>Kitchen Accessories</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="download (7).png">
+<div class="gallery-overlay">
+<h3>Luxury Cabinets</h3>
+</div>
+</div>
 
-<a href="VID-20260525-WA0016.mp4><img src="VID-20260525-WA0016.mp4"></a>
+<div class="gallery-item">
 
+<video controls>
+<source src="VID-20260525-WA0016.mp4"
+type="video/mp4">
+</video>
+
+<div class="gallery-overlay">
+<h3>Kitchen Video Showcase</h3>
+</div>
+
+</div>
+
+<div class="gallery-item">
 <img src="IMG-20260524-WA0014.png">
+<div class="gallery-overlay">
+<h3>Modern Shelf Design</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="download (6).png">
+<div class="gallery-overlay">
+<h3>Kitchen Storage Setup</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="download (5).png">
+<div class="gallery-overlay">
+<h3>Contemporary Interior</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="IMG-20260524-WA0011.png">
+<div class="gallery-overlay">
+<h3>Elegant Design Concept</h3>
+</div>
+</div>
 
+<div class="gallery-item">
 <img src="images (46).png">
-        </div>
+<div class="gallery-overlay">
+<h3>Modern Kitchen Finish</h3>
+</div>
+</div>
 
-    </section>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer class="footer">
 
-    <div class="footer-container">
+<div class="footer-container">
 
-        <div class="footer-brand">
-            <h2>ERICBOSS</h2>
-            <p>
-                Premium kitchen and interior solutions
-                crafted for modern homes and businesses.
-            </p>
-        </div>
+<div>
 
-        <div class="footer-links">
-            <h3>Quick Links</h3>
+<h2>ERICBOSS</h2>
 
-            <a href="index.html">Home</a>
-            <a href="#services">Services</a>
-            <a href="seemorefile.html">Gallery</a>
-            <a href="mailto:johnabidoye@doyetek.com">Contact</a>
-        </div>
+<p>
+Premium kitchen and interior solutions
+crafted for modern homes and businesses.
+</p>
 
-        <div class="footer-contact">
-            <h3>Contact</h3>
+</div>
 
-            <p>Email:<a href="mailto:johnabidoye@doyetek.com">johnabidoye@doyetek.com</a></p>
-      <p>Phone:<a href="tel: +2348106128219"> +234 810 612 8219</a></p>
-            <p>Lagos, Nigeria</p>
-        </div>
+<div>
 
-    </div>
+<h3>Quick Links</h3>
 
-    <div class="footer-bottom">
-        <p>© 2026 ERICBOSS Kitchen Services. All Rights Reserved.</p>
-    </div>
+<a href="index.html">
+Home
+</a>
+
+<a href="seemorefile.html">
+Gallery
+</a>
+
+<a href="mailto:johnabidoye@doyetek.com">
+Contact
+</a>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>
+johnabidoye@doyetek.com
+</p>
+
+<p>
++234 810 612 8219
+</p>
+
+<p>
+Lagos, Nigeria
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 ERICBOSS Kitchen Services.
+All Rights Reserved.
+</p>
+
+</div>
 
 </footer>
+
 </body>
-
 </html>
-

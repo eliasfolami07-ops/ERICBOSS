@@ -1,349 +1,687 @@
 
-
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ERICBOSS Kitchen Services</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>ERICBOSS Kitchen Services</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f0502;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
+    url('Eric1.png');
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:40px 20px;
+
+    position:relative;
+}
+
+/* animated glow */
+
+header::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,140,0,0.08);
+    border-radius:50%;
+    filter:blur(80px);
+    animation:float 7s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
     }
-    body {
-  background: #ece4d8;
-  color: #222;
-  line-height: 1.6;
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 }
 
-header {
-  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('Eric1.png');
-  background-size: cover;
-  background-position: center;
-  min-height: 95vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  padding: 20px;
+/* ===== HERO ===== */
+
+.hero{
+    max-width:900px;
+    z-index:2;
+
+    animation:fadeUp 1.2s ease;
 }
 
-.hero {
-  max-width: 800px;
-  position: relative;
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
+
 .hero-logo{
-  width: 480px;
-  max-width: 90%;
-  margin-bottom: 20px;
+    width:420px;
+    max-width:90%;
+    margin-bottom:20px;
 
-  /* Premium effect */
-  filter: drop-shadow(0 4px 12px rgba(212,175,55,0.35));
+    filter:
+    drop-shadow(0 0 12px rgba(255,170,0,0.5))
+    drop-shadow(0 0 25px rgba(255,170,0,0.3));
 
-  transition: 0.3s ease;
+    transition:0.4s;
 }
 
 .hero-logo:hover{
-  transform: scale(1.03);
+    transform:scale(1.04);
+}
+
+.hero h1{
+    font-size:5rem;
+    font-weight:800;
+    letter-spacing:3px;
+    margin-bottom:5px;
 }
 
 .hero h2{
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin-top: -10px;
-  margin-bottom: 20px;
-  color: white;
+    font-size:3rem;
+    color:#ffb347;
+    margin-bottom:20px;
 }
 
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 0;
-  color: white;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  opacity: 0.9;
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.1rem;
+    line-height:1.8;
+    opacity:0.92;
 }
 
-.btn {
-  display: inline-block;
-  background: #ff7a00;
-  color: white;
-  padding: 14px 32px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
+/* ===== BUTTON ===== */
+
+.btn{
+    display:inline-block;
+
+    margin-top:35px;
+
+    background:linear-gradient(135deg,#ff8c00,#ff5e00);
+
+    color:white;
+    text-decoration:none;
+
+    padding:16px 40px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:0.4s;
+
+    box-shadow:0 10px 25px rgba(255,120,0,0.3);
 }
 
-.btn:hover {
-  background: #e66900;
-  transform: translateY(-2px);
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+
+    box-shadow:0 18px 40px rgba(255,120,0,0.4);
 }
 
-section {
-  padding: 80px 8%;
+/* ===== SECTIONS ===== */
+
+section{
+    padding:100px 8%;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 50px;
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
 }
 
-.section-title h2 {
-  font-size: 2.5rem;
-  color: #111;
-  margin-bottom: 10px;
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:10px;
 }
 
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+.section-title p{
+    color:#bbb;
 }
 
-.service-card {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s ease;
+/* ===== SERVICES ===== */
+
+.services{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
 }
 
-.service-card:hover {
-  transform: translateY(-8px);
+.service-card{
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    padding:35px;
+
+    border-radius:22px;
+
+    transition:0.4s;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-.service-card h3 {
-  margin-bottom: 12px;
-  color: #ff7a00;
+.service-card::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:5px;
+
+    top:0;
+    left:0;
+
+    background:linear-gradient(to right,#ff8c00,#ffb347);
 }
 
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+.service-card:hover{
+    transform:translateY(-10px);
+
+    background:rgba(255,255,255,0.08);
 }
 
-.portfolio img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
+.service-card h3{
+    color:#ffb347;
+    margin-bottom:15px;
+    font-size:1.4rem;
 }
 
-.about {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  align-items: center;
+.service-card p{
+    color:#ddd;
 }
 
-.about img {
-  width: 100%;
-  border-radius: 20px;
+/* ===== PORTFOLIO ===== */
+
+.portfolio{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
 }
 
-.contact {
-  background: #111;
-  color: white;
-  border-radius: 24px;
-  text-align: center;
-  padding: 60px 20px;
+.portfolio img{
+    width:100%;
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:0.5s;
+
+    cursor:pointer;
 }
 
-.contact h2 {
-  margin-bottom: 15px;
-  font-size: 2.5rem;
+.portfolio img:hover{
+    transform:scale(1.04);
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
 }
+
+/* ===== SEE MORE ===== */
+
+.see-more{
+    text-align:center;
+    margin-top:40px;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:25px;
+
+    transition:0.4s;
+}
+
+.about img:hover{
+    transform:scale(1.03);
+}
+
+.about-text h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    margin-bottom:20px;
+    color:#ddd;
+    line-height:1.9;
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+    background:
+    linear-gradient(135deg,#1a0b03,#2b1204);
+
+    padding:70px 30px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.contact h2{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.contact p{
+    margin-bottom:15px;
+    color:#ddd;
+}
+
 .contact a{
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+    color:#ffb347;
+    text-decoration:none;
+    font-weight:600;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-  color: #aaa;
-}
+/* ===== FOOTER ===== */
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.8rem;
-
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-.hero-logo{
-  width: 130px;
-}
-
-.hero h2{
-  font-size: 2.3rem;
-}
-}
-
-    .footer{
-    background: #140904;
-    color: white;
-    padding: 60px 10%;
+.footer{
+    background:#070201;
+    padding:70px 10% 30px;
 }
 
 .footer-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 40px;
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:40px;
 }
 
 .footer h2,
 .footer h3{
-    margin-bottom: 15px;
+    margin-bottom:18px;
+}
+
+.footer p{
+    color:#aaa;
+    line-height:1.8;
 }
 
 .footer a{
-    display: block;
-    color: #ddd;
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: 0.3s;
+    color:#ccc;
+    text-decoration:none;
+
+    margin-bottom:12px;
+    display:block;
+
+    transition:0.3s;
 }
 
 .footer a:hover{
-    color: orange;
+    color:#ff8c00;
+    transform:translateX(5px);
 }
 
 .footer-bottom{
-    margin-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    text-align: center;
-    color: #aaa;
+    margin-top:50px;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+
+    padding-top:25px;
+
+    text-align:center;
+
+    color:#777;
 }
 
-  </style>
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    header{
+        background-attachment:scroll;
+    }
+
+    .hero-logo{
+        width:230px;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .hero h2{
+        font-size:2rem;
+    }
+
+    .hero p{
+        font-size:0.95rem;
+    }
+
+    .section-title h2{
+        font-size:2.2rem;
+    }
+
+    .about-text h2{
+        font-size:2.2rem;
+    }
+
+    .contact h2{
+        font-size:2.2rem;
+    }
+}
+
+</style>
 </head>
-<body>  <header>
-    <section class="hero">
-  <div class="overlay">
-      <img src="Eric-logo.png" alt="ERICBOSS Logo" class="hero-logo">
+
+<body>
+
+<header>
+
+<div class="hero">
+
+<img src="Eric-logo.png"
+alt="ERICBOSS Logo"
+class="hero-logo">
 
 <h1>ERICBOSS</h1>
+
 <h2>Kitchen Services</h2>
-      <h4 style="font-size: 18px;">Professional kitchen design, installation, remodeling, and maintenance services for modern homes and businesses.</h4><br>
-      <a href="#contact" class="btn">Book a Consultation</a>
-    </div>
-    </section>
-  </header>  <section>
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Premium solutions tailored for your kitchen needs.</p>
-    </div><div class="services">
-  <div class="service-card">
-    <h3>Kitchen Remodeling</h3>
-    <p>Transform old kitchens into stylish and functional modern spaces.</p>
-  </div>
 
-  <div class="service-card">
-    <h3>Cabinet Installation</h3>
-    <p>Custom cabinet solutions designed for durability and elegance.</p>
-  </div>
+<p>
+Professional kitchen design, installation,
+remodeling, and maintenance services
+for modern homes and businesses.
+</p>
 
-  <div class="service-card">
-    <h3>Interior Design</h3>
-    <p>Beautiful layouts and aesthetics tailored to your lifestyle.</p>
-  </div>
+<a href="#contact" class="btn">
+Book a Consultation
+</a>
 
-  <div class="service-card">
-    <h3>Kitchen Maintenance</h3>
-    <p>Reliable maintenance services to keep your kitchen running smoothly.</p>
-  </div>
 </div>
 
-  </section>  <section>
-    <div class="section-title">
-      <h2>Recent Projects</h2>
-      <p>Some of our completed kitchen transformations.</p>
-    </div><div class="portfolio">
-  <img src="Eric2.png" alt="Kitchen Project">
-  <img src="Eric6.png" alt="Kitchen Project">
-  <img src="Eric4.png" alt="Kitchen Project">
+</header>
+
+<!-- SERVICES -->
+
+<section>
+
+<div class="section-title">
+<h2>Our Services</h2>
+
+<p>
+Premium solutions tailored for your kitchen needs.
+</p>
 </div>
 
-    <a href="seemorefile.html" style="text-decoration:none;">See More</a><br>
+<div class="services">
 
-  </section>  <section>
-    <div class="about">
-      <img src="Eric5.png" alt="About Prime Kitchen Services"><div>
-    <h2>About Us</h2>
-    <p>
-      ERICBOSS Kitchen Services specializes in creating luxury kitchen spaces with modern designs and professional finishing. We combine functionality, creativity, and premium craftsmanship to deliver kitchens that stand out.
-    </p>
-    <br>
-    <p>We create modern, functional and beautiful kitchen spaces tailored to your lifestyle. From kitchen design and cabinet installation, to renovation and maintenance, we deliver quality craftmanship with attention to every detail.Your dream kitchen starts here.</p>
-    <br>
-    <p>
-      Our team has years of experience serving residential and commercial clients with top-quality kitchen solutions.
-    </p>
-  </div>
+<div class="service-card">
+<h3>Kitchen Remodeling</h3>
+
+<p>
+Transform old kitchens into stylish and
+functional modern spaces.
+</p>
 </div>
 
-  </section>  <section id="contact">
-    <div class="contact">
-      <h2>Let's Build Your Dream Kitchen</h2>
-      <p>Email:<a href="mailto:johnabidoye@doyetek.com">johnabidoye@doyetek.com</a></p>
-      <p>Phone:<a href="tel: +2348106128219"> +234 810 612 8219</a></p>
-      <br>
-      <a href="mailto:johnabidoye@doyetek.com" class="btn">Contact Us</a>
-    </div>
-  </section>
-    <footer class="footer">
+<div class="service-card">
+<h3>Cabinet Installation</h3>
 
-    <div class="footer-container">
+<p>
+Custom cabinet solutions designed for
+durability and elegance.
+</p>
+</div>
 
-        <div class="footer-brand">
-            <h2>ERICBOSS</h2>
-            <p>
-                Premium kitchen and interior solutions
-                crafted for modern homes and businesses.
-            </p>
-        </div>
+<div class="service-card">
+<h3>Interior Design</h3>
 
-        <div class="footer-links">
-            <h3>Quick Links</h3>
+<p>
+Beautiful layouts and aesthetics
+tailored to your lifestyle.
+</p>
+</div>
 
-            <a href="#">Home</a>
-  
-            <a href="seemorefile.html">Gallery</a>
-            <a href="#contact">Contact</a>
-        </div>
+<div class="service-card">
+<h3>Kitchen Maintenance</h3>
 
-        <div class="footer-contact">
-            <h3>Contact</h3>
+<p>
+Reliable maintenance services to keep
+your kitchen running smoothly.
+</p>
+</div>
 
-            <p>Email:<a href="mailto:johnabidoye@doyetek.com">johnabidoye@doyetek.com</a></p>
-      <p>Phone:<a href="tel: +2348106128219"> +234 810 612 8219</a></p>
-            <p>Lagos, Nigeria</p>
-        </div>
+</div>
 
-    </div>
+</section>
 
-    <div class="footer-bottom">
-        <p>© 2026 ERICBOSS Kitchen Services. All Rights Reserved.</p>
-    </div>
+<!-- PROJECTS -->
 
-    </footer>
+<section>
+
+<div class="section-title">
+
+<h2>Recent Projects</h2>
+
+<p>
+Some of our completed kitchen transformations.
+</p>
+
+</div>
+
+<div class="portfolio">
+
+<img src="Eric2.png" alt="Kitchen Project">
+
+<img src="Eric6.png" alt="Kitchen Project">
+
+<img src="Eric4.png" alt="Kitchen Project">
+
+</div>
+
+<div class="see-more">
+
+<a href="seemorefile.html" class="btn">
+View Gallery
+</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section>
+
+<div class="about">
+
+<img src="Eric5.png"
+alt="About ERICBOSS">
+
+<div class="about-text">
+
+<h2>About Us</h2>
+
+<p>
+ERICBOSS Kitchen Services specializes in
+creating luxury kitchen spaces with modern
+designs and professional finishing.
+</p>
+
+<p>
+We combine functionality, creativity,
+and premium craftsmanship to deliver
+kitchens that stand out beautifully.
+</p>
+
+<p>
+From cabinet installation to complete
+renovation, we bring dream kitchens to life.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="contact">
+
+<h2>Let's Build Your Dream Kitchen</h2>
+
+<p>
+Email:
+<a href="mailto:johnabidoye@doyetek.com">
+johnabidoye@doyetek.com
+</a>
+</p>
+
+<p>
+Phone:
+<a href="tel:+2348106128219">
++234 810 612 8219
+</a>
+</p>
+
+<a href="mailto:johnabidoye@doyetek.com"
+class="btn">
+Contact Us
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-container">
+
+<div>
+<h2>ERICBOSS</h2>
+
+<p>
+Premium kitchen and interior solutions
+crafted for modern homes and businesses.
+</p>
+</div>
+
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="#">Home</a>
+
+<a href="seemorefile.html">
+Gallery
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+<div>
+
+<h3>Contact</h3>
+
+<p>
+johnabidoye@doyetek.com
+</p>
+
+<p>
++234 810 612 8219
+</p>
+
+<p>
+Lagos, Nigeria
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>
+© 2026 ERICBOSS Kitchen Services.
+All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
 </body>
 </html>
